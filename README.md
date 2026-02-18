@@ -2,7 +2,7 @@
 
 Transform your Spotify listening history into a retro 70s room visualization. Instead of a receipt like receiptify, get an aesthetic room with your top albums as framed artwork.
 
-![Paunify Preview](https://ibb.co.com/6c5CrQxL)
+![Paunify Preview](https://i.ibb.co.com/JWPJmZ4g/Cuplikan-layar-2026-02-18-193347.png)
 
 ## About
 
