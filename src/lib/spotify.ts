@@ -2,7 +2,7 @@
 // Set your Spotify Client ID via environment variable VITE_SPOTIFY_CLIENT_ID
 const SPOTIFY_CLIENT_ID = import.meta.env.VITE_SPOTIFY_CLIENT_ID || '93f5af3067cd426baa8d986129ace81c';
 const REDIRECT_URI = window.location.origin + '/callback';
-const AUTH_PROXY = 'https://paunify.auth.workers.dev/auth/token'; // Cloudflare Worker proxy
+const AUTH_PROXY = 'https://paunify-oauth.farexoe.workers.dev/auth/token'; // Cloudflare Worker proxy
 const SCOPES = [
   'user-read-private',
   'user-read-email',

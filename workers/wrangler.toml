@@ -1,6 +1,8 @@
-name = "paunify-auth"
-main = "workers/auth.ts"
+name = "paunify-oauth"
 compatibility_date = "2024-01-01"
 
 [observability]
 enabled = true
+
+[build]
+command = ""
