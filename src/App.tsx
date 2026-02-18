@@ -40,8 +40,12 @@ function App() {
 
   const handleCallback = async (code: string) => {
     try {
+      console.log('Handling callback with code:', code.substring(0, 10) + '...');
       setCurrentView('loading');
+      
       const tokens = await exchangeCodeForTokens(code);
+      console.log('Got tokens:', tokens.access_token.substring(0, 10) + '...');
+      
       setTokens(tokens.access_token, tokens.expires_in);
       
       // Store in localStorage for persistence
@@ -54,7 +58,7 @@ function App() {
       window.history.replaceState({}, '', window.location.pathname);
     } catch (err) {
       console.error('Callback error:', err);
-      setError('Failed to authenticate. Please try again.');
+      setError('Failed to authenticate. Please try again. Check console for details.');
       setCurrentView('landing');
     }
   };

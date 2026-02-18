@@ -1,6 +1,6 @@
 // Spotify OAuth 2.0 PKCE Flow
 // Set your Spotify Client ID via environment variable VITE_SPOTIFY_CLIENT_ID
-const SPOTIFY_CLIENT_ID = import.meta.env.VITE_SPOTIFY_CLIENT_ID || 'YOUR_CLIENT_ID_HERE';
+const SPOTIFY_CLIENT_ID = import.meta.env.VITE_SPOTIFY_CLIENT_ID || '93f5af3067cd426baa8d986129ace81c';
 const REDIRECT_URI = window.location.origin + '/callback';
 const SCOPES = [
   'user-read-private',
@@ -69,7 +69,9 @@ export async function exchangeCodeForTokens(code: string): Promise<{ access_toke
   });
 
   if (!response.ok) {
-    throw new Error('Token exchange failed');
+    const errorText = await response.text();
+    console.error('Token exchange failed:', response.status, errorText);
+    throw new Error('Token exchange failed: ' + response.status);
   }
 
   const tokens = await response.json();
