@@ -1,0 +1,10 @@
+/*
+  X-Frame-Options: ALLOWALL
+  Access-Control-Allow-Origin: *
+  Cache-Control: public, max-age=0, s-maxage=3600
+*/
+
+# SPA fallback
+/index.html
+  X-Frame-Options: ALLOWALL
+  Access-Control-Allow-Origin: *

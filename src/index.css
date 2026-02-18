@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  background: linear-gradient(135deg, #FFF8E7 0%, #F5ECD8 100%);
+  min-height: 100vh;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F5ECD8;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D4A017;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #B88A0D;
+}
+
+/* Vinyl record spin */
+@keyframes vinyl-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.vinyl-spin {
+  animation: vinyl-spin 3s linear infinite;
+}
+
+/* Lava lamp bubble */
+@keyframes lava-float {
+  0%, 100% { 
+    transform: translateY(0) scale(1);
+    opacity: 0.8;
+  }
+  50% { 
+    transform: translateY(-30px) scale(1.2);
+    opacity: 0.4;
+  }
+}
+
+.lava-bubble {
+  animation: lava-float 4s ease-in-out infinite;
+}
+
+/* Retro TV flicker */
+@keyframes tv-flicker {
+  0%, 100% { opacity: 1; }
+  92% { opacity: 1; }
+  93% { opacity: 0.8; }
+  94% { opacity: 1; }
+  95% { opacity: 0.9; }
+  96% { opacity: 1; }
+}
+
+.tv-flicker {
+  animation: tv-flicker 0.15s infinite;
+}
+
+/* Typewriter cursor */
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.cursor-blink {
+  animation: cursor-blink 1s step-end infinite;
+}
+
+/* Window sunset gradient */
+.window-sunset {
+  background: linear-gradient(180deg, #FF6B6B 0%, #FFA500 50%, #FFD700 100%);
+}
+
+/* Wood texture pattern */
+.wood-pattern {
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 20px,
+    rgba(0,0,0,0.05) 20px,
+    rgba(0,0,0,0.05) 22px
+  );
+}
+
+/* Wall pattern */
+.wall-pattern {
+  background-image: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 60px,
+    rgba(139, 90, 43, 0.1) 60px,
+    rgba(139, 90, 43, 0.1) 62px
+  );
+}
+
+/* Shag carpet pattern */
+.carpet-pattern {
+  background-image: repeating-radial-gradient(
+    circle at center,
+    #8B5A2B 0px,
+    #8B5A2B 2px,
+    #6B4423 3px,
+    #6B4423 4px
+  );
+}
