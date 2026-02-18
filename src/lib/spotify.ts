@@ -2,6 +2,7 @@
 // Set your Spotify Client ID via environment variable VITE_SPOTIFY_CLIENT_ID
 const SPOTIFY_CLIENT_ID = import.meta.env.VITE_SPOTIFY_CLIENT_ID || '93f5af3067cd426baa8d986129ace81c';
 const REDIRECT_URI = window.location.origin + '/callback';
+const AUTH_PROXY = 'https://paunify.auth.workers.dev/auth/token'; // Cloudflare Worker proxy
 const SCOPES = [
   'user-read-private',
   'user-read-email',
@@ -54,18 +55,21 @@ export async function exchangeCodeForTokens(code: string): Promise<{ access_toke
     throw new Error('Code verifier not found');
   }
 
-  const response = await fetch('https://accounts.spotify.com/api/token', {
+  const body = new URLSearchParams({
+    grant_type: 'authorization_code',
+    code,
+    redirect_uri: REDIRECT_URI,
+    client_id: SPOTIFY_CLIENT_ID,
+    code_verifier: verifier
+  }).toString();
+
+  // Use Cloudflare Worker proxy to avoid CORS
+  const response = await fetch(AUTH_PROXY, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded'
     },
-    body: new URLSearchParams({
-      grant_type: 'authorization_code',
-      code,
-      redirect_uri: REDIRECT_URI,
-      client_id: SPOTIFY_CLIENT_ID,
-      code_verifier: verifier
-    })
+    body
   });
 
   if (!response.ok) {
