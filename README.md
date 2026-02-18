@@ -1,14 +1,20 @@
-# Paunify 🎸
+# Paunify
 
-Visualisasi mendengarkan Spotify lo dalam ruangan retro 70s yang aesthetic. Beda dari receiptify - ini bukan karcis, tapi ruangan!
+Transform your Spotify listening history into a retro 70s room visualization. Instead of a receipt like receiptify, get an aesthetic room with your top albums as framed artwork.
+
+![Paunify Preview](https://placehold.co/600x400/E8D5B5/5D4E37?text=Paunify+Preview)
+
+## About
+
+Paunify analyzes your Spotify data and creates a unique visual representation of your music taste. See your top albums displayed as framed artwork in a cozy retro room, complete with spinning vinyl player, lava lamp, and retro TV.
 
 ## Features
 
-- 🎸 **Retro 70s Room** - Ruangan aesthetic dengan album frames, vinyl player, lava lamp
-- 🔥 **Music Roast** - Analisa taste musik lo dan dapat roasting yang sesuai
-- 📸 **Export Image** - Download hasil room sebagai gambar
-- 🔗 **Share** - Share ke Twitter, Facebook
-- 👥 **Roast Your Friend** - Roast temen lo lewat link
+- **Retro 70s Room** - Aesthetic room visualization with album frames, vinyl player, and lava lamp
+- **Music Taste Analysis** - Get roasted based on your listening habits
+- **Export Image** - Download your room as PNG
+- **Social Sharing** - Share to Twitter/X, Facebook
+- **Roast Your Friend** - Generate a shareable link to roast your friends
 
 ## Tech Stack
 
@@ -18,66 +24,66 @@ Visualisasi mendengarkan Spotify lo dalam ruangan retro 70s yang aesthetic. Beda
 - Zustand
 - html2canvas
 
-## Getting Started
-
-### Prerequisites
-
-- Node.js 18+
-- Spotify Account
-
-### Installation
+## Quick Start
 
 ```bash
+# Install dependencies
 npm install
-```
 
-### Spotify Setup
-
-1. Go to [Spotify Developer Dashboard](https://developer.spotify.com/dashboard)
-2. Create a new app
-3. Copy your **Client ID**
-4. Add Redirect URIs:
-   - `http://localhost:5173/callback` (development)
-   - `https://your-domain.pages.dev/callback` (production)
-
-5. Create `.env` file:
-```bash
-cp .env.example .env
-```
-
-6. Edit `.env` and add your Client ID:
-```
-VITE_SPOTIFY_CLIENT_ID=your_client_id_here
-```
-
-### Run Locally
-
-```bash
+# Run locally
 npm run dev
 ```
 
-Open [http://localhost:5173](http://localhost:5173)
+Open `http://localhost:5173` in your browser.
 
-### Build
+## Spotify Setup
+
+1. Go to [Spotify Developer Dashboard](https://developer.spotify.com/dashboard)
+2. Create a new app
+3. Copy your Client ID
+4. Add Redirect URIs:
+   - `http://localhost:5173/callback` (development)
+   - `https://your-domain.pages.dev/callback` (production)
+5. Create `.env` file:
+   ```bash
+   cp .env.example .env
+   ```
+6. Add your Client ID to `.env`:
+   ```
+   VITE_SPOTIFY_CLIENT_ID=your_client_id
+   ```
+
+## Deployment
+
+### Cloudflare Pages
+
+```bash
+npm run build
+npx wrangler pages deploy dist
+```
+
+### Build Only
 
 ```bash
 npm run build
 ```
 
-### Deploy to Cloudflare Pages
+The built files will be in the `dist` folder.
 
-```bash
-npx wrangler pages deploy dist
-```
+## How It Works
 
-## Roast Patterns
+Paunify analyzes your Spotify data through multiple patterns:
 
-Paunify punya 30+ patterns untuk menganalisa musik lo:
+- **Genre Detection** - Identifies your dominant music taste
+- **Audio Features** - Analyzes mood (happy, sad, energetic)
+- **Behavioral Patterns** - Detects listening habits (repeat, night owl)
+- **Obscurity Score** - Measures how mainstream or underground you are
 
-- **Genre:** Indie Skena, JKT48, K-Pop, Dangdut Koplo, Metal, Jazz, Lo-Fi, EDM, Rap, R&B, Anime, Bollywood, dll
-- **Audio Features:** Sad Boi Hours, Hyper Positive, Club Ready, Acoustic Vibe, Workout Beast
-- **Behavioral:** On Repeat Abuser, Night Owl, Local Pride, Genre Hopper
-- **Obscurity:** Mainstream Basic, Balanced, Underground Skena
+## Requirements
+
+- Node.js 18+
+- Spotify Premium account (required for Web API access)
+- Modern web browser
 
 ## License
 
@@ -85,4 +91,4 @@ MIT
 
 ---
 
-Made with ❤️ for Gen-Z Indonesia
+Built for Gen-Z Indonesia who want to show off their music taste in a unique way.
